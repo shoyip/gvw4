@@ -1,0 +1,404 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Rubik|Open+Sans");
+* {
+  box-sizing: content-box;
+  font-variant-ligatures: none; }
+
+strong {
+  font-weight: 700; }
+
+p {
+  hyphens: auto; }
+
+blockquote p {
+  hanging-punctuation: first; }
+
+ul.square {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  ul.square li {
+    padding-left: 1em;
+    text-indent: -0.7em; }
+    ul.square li::before {
+      content: "▪  ";
+      color: #1878a1; }
+
+body {
+  font-size: 11pt;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif; }
+  body header {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    width: 100%;
+    background: #fff;
+    height: 3.5rem; }
+    body header nav {
+      font-family: "Rubik", sans-serif;
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto; }
+      body header nav a.logo {
+        height: 3.5rem;
+        width: 3.5rem;
+        color: #1878A1;
+        text-decoration: none;
+        display: inline-block;
+        float: left;
+        background: url("../asset/logob.svg") 50% 50%/2rem auto no-repeat; }
+        body header nav a.logo::after {
+          content: "GobettiVolta";
+          line-height: 3.5rem;
+          margin: 3.5rem;
+          font-weight: 700; }
+  body main {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto; }
+    body main div.breadcrumbs {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      font-size: 0.85rem; }
+      body main div.breadcrumbs::before {
+        content: "Ti trovi in: ";
+        color: rgba(0, 0, 0, 0.44);
+        float: left;
+        padding-right: 0.5rem; }
+      body main div.breadcrumbs ol {
+        list-style: none; }
+        body main div.breadcrumbs ol li {
+          display: inline-block; }
+          body main div.breadcrumbs ol li a {
+            color: black; }
+        body main div.breadcrumbs ol li:nth-of-type(n+2)::before {
+          content: ">";
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+          color: rgba(0, 0, 0, 0.44); }
+    body main a[href*="//"]:not([href*="http://gobettivolta.gov.it"])::before {
+      font-family: FontAwesome;
+      font-size: 0.9rem;
+      content: " "; }
+    body main a[href*=".pdf"]::after {
+      font-family: FontAwesome;
+      font-size: 0.9rem;
+      content: " "; }
+    body main nav.sidenav {
+      display: none;
+      height: 200px;
+      overflow: visible;
+      position: sticky;
+      top: 0; }
+    body main article {
+      counter-reset: h2counter;
+      padding-bottom: 3rem;
+      border-bottom: solid #DEE0E2 5px;
+      margin-bottom: 3rem; }
+      body main article div.author {
+        min-height: 120px;
+        position: relative;
+        vertical-align: middle;
+        font-size: 0.9rem;
+        border: solid black 1px;
+        border-radius: 0.7rem;
+        padding: 0 3rem; }
+        body main article div.author div.authorimg {
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          float: left; }
+          body main article div.author div.authorimg img {
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            border-radius: 60px; }
+        body main article div.author div.authortext {
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          margin-left: 80px;
+          padding-right: 3rem;
+          display: block; }
+          body main article div.author div.authortext p.authordesc {
+            opacity: 0.44; }
+      body main article > span, body main article > p, body main article > ul, body main article > table {
+        caption-side: bottom;
+        font-size: 1rem;
+        line-height: 150%; }
+        body main article > span caption, body main article > p caption, body main article > ul caption, body main article > table caption {
+          padding: 1em 0; }
+      body main article aside {
+        padding: 1rem;
+        margin: 1rem 0;
+        display: block;
+        font-size: 0.8rem;
+        background: #DEE0E2; }
+        body main article aside div.rowgroup {
+          padding: 0.5em 0; }
+          body main article aside div.rowgroup span {
+            display: block; }
+          body main article aside div.rowgroup span.coursetitle {
+            display: block;
+            position: relative;
+            left: -1rem;
+            border-left: #ff471c solid 3px;
+            padding-left: 1rem;
+            color: #ff471c;
+            font-weight: bold; }
+      body main article table.timetable {
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        width: 100%;
+        table-layout: fixed;
+        border-spacing: 5px; }
+        body main article table.timetable td, body main article table.timetable th {
+          border: solid white 5px;
+          padding: 0.5rem;
+          vertical-align: middle; }
+        body main article table.timetable thead th, body main article table.timetable tfoot th {
+          font-weight: bold; }
+        body main article table.timetable td:empty {
+          background: transparent; }
+        body main article table.timetable thead tr th {
+          vertical-align: middle; }
+        body main article table.timetable thead tr th:nth-of-type(1) {
+          width: 30%; }
+        body main article table.timetable thead tr th:nth-of-type(2) {
+          color: white;
+          width: calc(40% * 70%); }
+        body main article table.timetable thead tr th:nth-of-type(3) {
+          color: white;
+          widows: calc(60% * 70%); }
+        body main article table.timetable thead tr:nth-of-type(1) #biennio {
+          background: #1878a1; }
+        body main article table.timetable thead tr:nth-of-type(1) #triennio {
+          background: #ff471c; }
+        body main article table.timetable thead tr:nth-of-type(2) {
+          color: white; }
+          body main article table.timetable thead tr:nth-of-type(2) th:nth-of-type(1), body main article table.timetable thead tr:nth-of-type(2) th:nth-of-type(2) {
+            background: #5BA4C3; }
+          body main article table.timetable thead tr:nth-of-type(2) th:nth-of-type(n+3) {
+            background: #FF8D72; }
+        body main article table.timetable tbody tr th {
+          text-align: left; }
+        body main article table.timetable tbody tr td:nth-of-type(n+1) {
+          text-align: center; }
+        body main article table.timetable tbody tr:nth-of-type(odd) {
+          background: #DEE0E2; }
+        body main article table.timetable tfoot {
+          border-top: solid 2px black;
+          border-bottom: dashed 2px #DEE0E2; }
+          body main article table.timetable tfoot tr th {
+            text-align: left; }
+          body main article table.timetable tfoot tr td {
+            text-align: center; }
+      body main article a {
+        color: #1878a1;
+        text-decoration: none;
+        border-bottom: solid 1px;
+        transition: border 0.2s ease; }
+      body main article a:hover {
+        border-bottom: solid 3px; }
+      body main article span.artsub {
+        opacity: 0.44; }
+      body main article ul {
+        list-style: disc;
+        list-style-position: inside; }
+        body main article ul li ul {
+          list-style: circle; }
+          body main article ul li ul li ul {
+            list-style: square; }
+      body main article h1 {
+        counter-reset: h2counter;
+        font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif;
+        line-height: 100%;
+        font-size: 2rem;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+        font-weight: 600; }
+      body main article h2 {
+        line-height: 100%;
+        font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif;
+        font-size: 1.5rem;
+        margin-top: 0.7em;
+        margin-bottom: 0.3em;
+        font-weight: 600; }
+      body main article h3 {
+        text-transform: uppercase;
+        font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem; }
+      body main article > p, body main article > span {
+        padding-top: 0.2rem;
+        padding-bottom: 1rem; }
+      body main article img.artimg {
+        width: 100%;
+        height: 20rem;
+        object-fit: cover; }
+  body footer {
+    padding: 1rem 2rem; }
+
+@media only screen and (max-width: 630px) {
+  body header nav div.navright {
+    padding-left: 1em;
+    left: 100%;
+    position: fixed;
+    background: #315767;
+    opacity: 0.9;
+    text-align: left;
+    z-index: 3;
+    padding-top: 3.5rem;
+    height: 100%;
+    width: 100%; }
+    body header nav div.navright a {
+      opacity: 0.7;
+      padding-top: 2rem;
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-size: 4rem;
+      font-weight: 400;
+      z-index: 5; }
+      body header nav div.navright a:hover {
+        opacity: 1; }
+  body header nav #menu-toggle {
+    display: none; }
+  body header nav #menu-toggle + label {
+    font-family: FontAwesome;
+    display: block; }
+  body header nav #menu-toggle + label::after {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    color: #1878a1;
+    content: "";
+    line-height: 3.5rem;
+    float: right;
+    padding: 0 1rem 0 1rem; }
+  body header nav #menu-toggle:checked + label::after {
+    position: fixed;
+    content: "";
+    color: white; }
+  body header nav #menu-toggle:checked ~ div.navright {
+    left: 0; }
+  body header nav #menu-toggle:checked ~ .logo {
+    position: fixed; } }
+@media only screen and (min-width: 631px) {
+  body header nav #menu-toggle, body header nav #menu-toggle + label {
+    display: none; }
+  body header nav div.navright {
+    position: static;
+    width: auto;
+    display: block;
+    padding: 0;
+    float: right; }
+    body header nav div.navright a {
+      transition: all 0.2s ease-in;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: inline-block;
+      padding: 0 1rem 0 1rem;
+      height: 3.5rem;
+      line-height: 3.5rem;
+      text-decoration: none;
+      color: #a0c6d6; }
+      body header nav div.navright a.active {
+        color: #1878A1; }
+      body header nav div.navright a:hover {
+        color: #1878A1; }
+    body header nav div.navright label, body header nav div.navright label + input {
+      display: none; }
+  body main, body footer {
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto; }
+  body main article aside {
+    margin: 1rem;
+    float: right;
+    width: 190px; }
+  body main article > span, body main article > p, body main article > ul, body main article > table {
+    font-size: 1.2rem; }
+  body main article h1 {
+    font-size: 3.8rem; }
+  body main article h2 {
+    font-size: 2rem; } }
+@media only screen and (min-width: 1025px) {
+  body footer {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto; }
+  body main {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex; }
+    body main nav.sidenav, body main div.content {
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 0;
+      margin: 10px; }
+    body main nav.sidenav {
+      display: block;
+      position: sticky;
+      top: 10px;
+      max-width: 20%; }
+      body main nav.sidenav span.sitesection {
+        color: rgba(0, 0, 0, 0.44);
+        display: block;
+        padding: 1rem 1rem;
+        text-transform: uppercase;
+        font-weight: 700; }
+      body main nav.sidenav ol {
+        max-width: 250px; }
+        body main nav.sidenav ol li a {
+          text-decoration: none;
+          color: #000;
+          width: 100%;
+          display: block;
+          padding: 0.7rem 0 0.7rem 1rem;
+          text-align: left;
+          transition: all 0.2s ease-in; }
+        body main nav.sidenav ol li a:hover {
+          background: #DEE0E2; }
+        body main nav.sidenav ol > li ol > li {
+          padding-left: 1.5rem;
+          clear: both; }
+          body main nav.sidenav ol > li ol > li a.active {
+            background: #1878a1;
+            color: #FFF; }
+        body main nav.sidenav ol > li > a.active {
+          border-left: #1878a1 solid 3px; }
+    body main div.content {
+      padding: 0 1rem; } }
+div.collab {
+  height: 150px;
+  display: flex;
+  align-items: center; }
+  div.collab div.inaf {
+    background: url("../asset/inaf_col.gif") no-repeat 0 50%;
+    background-size: contain;
+    width: 50%;
+    height: 100%;
+    filter: grayscale(1) opacity(0.7); }
+    div.collab div.inaf:hover {
+      filter: grayscale(0) opacity(1); }
+  div.collab div.unifi {
+    background: url("../asset/logo_unifi.jpg") no-repeat 0 50%;
+    background-size: contain;
+    width: 50%;
+    height: 100%;
+    filter: opacity(0.7); }
+    div.collab div.unifi:hover {
+      filter: opacity(1); }
+
+.ls_link::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin-right: 5px;
+  background: #0B8040; }
+
+/*# sourceMappingURL=style.css.map */

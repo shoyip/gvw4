@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Rubik|Open+Sans')
+
+$primcol: #1878a1
+$triared: #ff471c
+$primcol_w: #5BA4C3
+$triared_w: #FF8D72
+$seriffonts: "Lusitana", Georgia, serif
+$sansstack: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif
+
+*
+  box-sizing: content-box
+  font-variant-ligatures: none
+
+strong
+  font-weight: 700
+
+p
+  hyphens: auto
+
+blockquote p
+  hanging-punctuation: first
+
+ul.square
+  list-style: none
+  padding: 0
+  margin: 0
+  li
+    padding-left: 1em
+    text-indent: -.7em
+    &::before
+      content: "▪\00a0\00a0"
+      color: $primcol
+
+=container($width)
+  max-width: $width
+  margin-left: auto
+  margin-right: auto
+
+body
+  font-size: 11pt
+  font-family: $sansstack
+  header
+    box-shadow: 0 2px 5px rgba(0,0,0,.26)
+    width: 100%
+    background: #fff
+    height: 3.5rem
+    nav
+      font-family: "Rubik", sans-serif
+      +container(1024px)
+      a.logo
+        height: 3.5rem
+        width: 3.5rem
+        color: #1878A1
+        text-decoration: none
+        display: inline-block
+        float: left
+        background: url("../asset/logob.svg") 50% 50%/2rem auto no-repeat
+        &::after
+          content: "GobettiVolta"
+          line-height: 3.5rem
+          margin: 3.5rem
+          font-weight: 700
+  main
+    +container(90%)
+    div.breadcrumbs
+      padding-top: 1rem
+      padding-bottom: 1rem
+      font-size: .85rem
+      &::before
+        content: "Ti trovi in:\00a0"
+        color: rgba(0,0,0,.44)
+        float: left
+        padding-right: .5rem
+      ol
+        list-style: none
+        li
+          display: inline-block
+          a
+            color: black
+        li:nth-of-type(n+2)::before
+          content: ">"
+          padding-left: .5rem
+          padding-right: .5rem
+          color: rgba(0,0,0,.44)
+    a[href*="//"]:not([href*="http://gobettivolta.gov.it"])::before
+      font-family: FontAwesome
+      font-size: .9rem
+      content: "\f08e\00a0"
+    a[href*=".pdf"]::after
+      font-family: FontAwesome
+      font-size: .9rem
+      content: "\00a0\f1c1"
+    nav.sidenav
+      display: none
+      height: 200px
+      overflow: visible
+      position: sticky
+      top: 0
+    article
+      counter-reset: h2counter
+      padding-bottom: 3rem
+      border-bottom: solid #DEE0E2 5px
+      margin-bottom: 3rem
+      div.author
+        min-height: 120px
+        position: relative
+        vertical-align: middle
+        font-size: .9rem
+        border: solid black 1px
+        border-radius: .7rem
+        padding: 0 3rem
+        div.authorimg
+          position: absolute
+          top: 50%
+          transform: translate(0,-50%)
+          float: left
+          img
+            left: 50%
+            width: 60px
+            height: 60px
+            border-radius: 60px
+        div.authortext
+          position: absolute
+          top: 50%
+          transform: translate(0,-50%)
+          margin-left: 80px
+          padding-right: 3rem
+          display: block
+          p.authordesc
+            opacity: .44
+      &>span, >p, >ul, >table
+        caption-side: bottom
+        //font-family: $seriffonts
+        font-size: 1rem
+        line-height: 150%
+        caption
+          padding: 1em 0
+      aside
+        padding: 1rem
+        margin: 1rem 0
+        display: block
+        font-size: .8rem
+        background: #DEE0E2
+        div.rowgroup
+          padding: .5em 0
+          span
+            display: block
+          span.coursetitle
+            display: block
+            position: relative
+            left: -1rem
+            border-left: $triared solid 3px
+            padding-left: 1rem
+            color: $triared
+            font-weight: bold
+      table.timetable
+        border-collapse: collapse
+        font-size: .9rem
+        width: 100%
+        table-layout: fixed
+        border-spacing: 5px
+        td, th
+          border: solid white 5px
+          padding: .5rem
+          vertical-align: middle
+        thead, tfoot
+          th
+            font-weight: bold
+        td:empty
+          background: transparent
+        thead
+          tr
+            th
+              vertical-align: middle
+            th:nth-of-type(1)
+              width: 30%
+            th:nth-of-type(2)
+              color: white
+              width: calc(40% * 70%)
+            th:nth-of-type(3)
+              color: white
+              widows: calc(60% * 70%)
+            &:nth-of-type(1)
+              #biennio
+                background: $primcol
+              #triennio
+                background: $triared
+            &:nth-of-type(2)
+              color: white
+              th:nth-of-type(1), th:nth-of-type(2)
+                background: $primcol_w
+              th:nth-of-type(n+3)
+                background: $triared_w
+        tbody
+          tr
+            th
+              text-align: left
+            td:nth-of-type(n+1)
+              text-align: center
+            &:nth-of-type(odd)
+              background: #DEE0E2
+        tfoot
+          border-top: solid 2px black
+          border-bottom: dashed 2px #DEE0E2
+          tr
+            th
+              text-align: left
+            td
+              text-align: center
+      a
+        color: $primcol
+        text-decoration: none
+        border-bottom: solid 1px
+        transition: border .2s ease
+      a:hover
+        border-bottom: solid 3px
+      span.artsub
+        opacity: .44
+      ul
+        list-style: disc
+        list-style-position: inside
+        li ul
+          list-style: circle
+          li ul
+            list-style: square
+      h1
+        counter-reset: h2counter
+        font-family: $sansstack
+        line-height: 100%
+        font-size: 2rem
+        margin-top: .5em
+        margin-bottom: .3em
+        font-weight: 600
+      h2
+        line-height: 100%
+        font-family: $sansstack
+        font-size: 1.5rem
+        margin-top: .7em
+        margin-bottom: .3em
+        font-weight: 600
+      h3
+        text-transform: uppercase
+        font-family: $sansstack
+        font-weight: 700
+        font-size: .9rem
+      //h2::before
+        content: counter(h2counter) " "
+        counter-increment: h2counter
+      >p, >span
+        padding-top: .2rem
+        padding-bottom: 1rem
+      img.artimg
+        width: 100%
+        height: 20rem
+        object-fit: cover
+  footer
+    padding: 1rem 2rem
+
+@media only screen and (max-width: 630px)
+  body
+    header
+      nav
+        div.navright
+          padding-left: 1em
+          left: 100%
+          position: fixed
+          background: #315767
+          opacity: .9
+          text-align: left
+          z-index: 3
+          padding-top: 3.5rem
+          height: 100%
+          width: 100%
+          a
+            opacity: .7
+            padding-top: 2rem
+            display: block
+            color: white
+            text-decoration: none
+            font-size: 4rem
+            font-weight: 400
+            z-index: 5
+            &:hover
+              opacity: 1
+        #menu-toggle
+          display: none
+        #menu-toggle + label
+          font-family: FontAwesome
+          display: block
+        #menu-toggle + label::after
+          position: absolute
+          z-index: 5
+          top: 0
+          right: 0
+          color: $primcol
+          content: "\f0c9"
+          line-height: 3.5rem
+          float: right
+          padding: 0 1rem 0 1rem
+        #menu-toggle:checked + label::after
+          position: fixed
+          content: "\f00d"
+          color: white
+        #menu-toggle:checked ~ div.navright
+          left: 0
+        #menu-toggle:checked ~ .logo
+          position: fixed
+
+@media only screen and (min-width: 631px)
+  body
+    header
+      nav
+        #menu-toggle, #menu-toggle + label
+          display: none
+        div.navright
+          position: static
+          width: auto
+          display: block
+          padding: 0
+          float: right
+          a
+            transition: all .2s ease-in
+            text-transform: uppercase
+            font-size: .8rem
+            font-weight: 700
+            display: inline-block
+            padding: 0 1rem 0 1rem
+            height: 3.5rem
+            line-height: 3.5rem
+            text-decoration: none
+            color: #a0c6d6
+            &.active
+              color: #1878A1
+            &:hover
+              color: #1878A1
+          label, label + input
+            display: none
+    main, footer
+      +container(630px)
+    main
+      article
+        aside
+          margin: 1rem
+          float: right
+          width: 190px
+        >span, >p, >ul, >table
+          font-size: 1.2rem
+        h1
+          font-size: 3.8rem
+        h2
+          font-size: 2rem
+
+@media only screen and (min-width: 1025px)
+  body
+    footer
+      +container(1024px)
+    main
+      +container(1024px)
+      display: flex
+      nav.sidenav, div.content
+        flex-grow: 1
+        flex-shrink: 1
+        flex-basis: 0
+        margin: 10px
+      nav.sidenav
+        display: block
+        position: sticky
+        top: 10px
+        max-width: 20%
+        span.sitesection
+          color: rgba(0,0,0,.44)
+          display: block
+          padding: 1rem 1rem
+          text-transform: uppercase
+          font-weight: 700
+        ol
+          max-width: 250px
+          li
+            a
+              text-decoration: none
+              color: #000
+              width: 100%
+              display: block
+              padding: .7rem 0 .7rem 1rem
+              text-align: left
+              transition: all .2s ease-in
+            a:hover
+              background: #DEE0E2
+          >li
+            ol
+              >li
+                padding-left: 1.5rem
+                clear: both
+                a.active
+                  background: $primcol
+                  color: #FFF
+                //a::after
+                  display: block
+                  content: "❱"
+                  font-size: 1rem
+                  padding-right: 1rem
+                  text-align: right
+                  float: right
+            >a.active
+              border-left: $primcol solid 3px
+      div.content
+        padding: 0 1rem
+
+// PAGE-SPECIFIC: LICEO SCIENTIFICO ASTRONOMIA
+div.collab
+  height: 150px
+  display: flex
+  align-items: center
+  div.inaf
+    background: url("../asset/inaf_col.gif") no-repeat 0 50%
+    background-size: contain
+    width: 50%
+    height: 100%
+    filter: grayscale(1) opacity(.7)
+    &:hover
+      filter: grayscale(0) opacity(1)
+  div.unifi
+    background: url("../asset/logo_unifi.jpg") no-repeat 0 50%
+    background-size: contain
+    width: 50%
+    height: 100%
+    filter: opacity(.7)
+    &:hover
+      filter: opacity(1)
+
+.ls_link::before
+  content: ""
+  display: inline-block
+  width: 10px
+  height: 10px
+  border-radius: 10px
+  margin-right: 5px
+  background: #0B8040
