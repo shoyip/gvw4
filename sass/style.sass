@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Rubik|Open+Sans')
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,700i|Montserrat')
 
 $primcol: #1878a1
 $triared: #ff471c
 $primcol_w: #5BA4C3
 $triared_w: #FF8D72
+$gray1: #315767
+$gray2: #A0C6D6
+$darkgray: #DEE0E2
+$bggray: #F6F6F6
 $seriffonts: "Lusitana", Georgia, serif
-$sansstack: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif
+$sansstack: "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif
 
 *
   box-sizing: content-box
@@ -37,29 +41,32 @@ ul.square
   margin-right: auto
 
 body
-  font-size: 11pt
+  background: $bggray
+  color: #333
+  font-size: 13px
+  line-height: 18px
   font-family: $sansstack
   header
-    box-shadow: 0 2px 5px rgba(0,0,0,.26)
+    /*box-shadow: 0 2px 5px rgba(0,0,0,.26)
     width: 100%
     background: #fff
-    height: 3.5rem
     nav
-      font-family: "Rubik", sans-serif
-      +container(1024px)
+      background: $gray1
+      width: 100%
+      display: table
       a.logo
         height: 3.5rem
         width: 3.5rem
-        color: #1878A1
+        color: #fff
         text-decoration: none
-        display: inline-block
-        float: left
-        background: url("../asset/logob.svg") 50% 50%/2rem auto no-repeat
+        display: table-cell
+        vertical-align: middle
+        padding-left: 75px
+        background: url("../asset/logow.svg") -30px 50%/130px auto no-repeat
         &::after
           content: "GobettiVolta"
-          line-height: 3.5rem
-          margin: 3.5rem
-          font-weight: 700
+          font-size: 1rem
+          font-weight: 600
   main
     +container(90%)
     div.breadcrumbs
@@ -261,16 +268,17 @@ body
     header
       nav
         div.navright
-          padding-left: 1em
+          font-family: Montserrat
+          font-weight: bold
+          width: 100%
           left: 100%
           position: fixed
-          background: #315767
-          opacity: .9
-          text-align: left
+          background: black
+          opacity: 1
+          text-align: center
           z-index: 3
           padding-top: 3.5rem
           height: 100%
-          width: 100%
           a
             opacity: .7
             padding-top: 2rem
@@ -278,6 +286,7 @@ body
             color: white
             text-decoration: none
             font-size: 4rem
+            line-height: 4rem
             font-weight: 400
             z-index: 5
             &:hover
@@ -292,7 +301,7 @@ body
           z-index: 5
           top: 0
           right: 0
-          color: $primcol
+          color: #fff
           content: "\f0c9"
           line-height: 3.5rem
           float: right
@@ -310,15 +319,21 @@ body
   body
     header
       nav
+        border-spacing: 20px 0
         #menu-toggle, #menu-toggle + label
           display: none
+        a.logo
+          background: url("../asset/logow.svg") 0 50%/50px auto no-repeat
+          padding-left: 60px
         div.navright
-          position: static
+          padding: 1rem
           width: auto
-          display: block
-          padding: 0
-          float: right
+          display: table-cell
+          text-align: right
           a
+            vertical-align: middle
+            display: inline-block
+            letter-spacing: .1em
             transition: all .2s ease-in
             text-transform: uppercase
             font-size: .8rem
@@ -328,14 +343,15 @@ body
             height: 3.5rem
             line-height: 3.5rem
             text-decoration: none
-            color: #a0c6d6
+            color: #fff
+            opacity: .7
             &.active
-              color: #1878A1
+              opacity: 1
             &:hover
-              color: #1878A1
+              opacity: 1
           label, label + input
             display: none
-    main, footer
+    main
       +container(630px)
     main
       article
@@ -344,7 +360,7 @@ body
           float: right
           width: 190px
         >span, >p, >ul, >table
-          font-size: 1.2rem
+          font-size: 1rem
         h1
           font-size: 3.8rem
         h2
@@ -352,8 +368,17 @@ body
 
 @media only screen and (min-width: 1025px)
   body
+    header
+      nav
+        a.logo::before
+          content: "Istituto"
+          font-size: .9rem
+          font-weight: normal
+          display: block
+        a.logo::after
+          font-size: 1.2rem
     footer
-      +container(1024px)
+      background: $gray1
     main
       +container(1024px)
       display: flex
@@ -380,20 +405,23 @@ body
               text-decoration: none
               color: #000
               width: 100%
+              font-size: .9rem
               display: block
-              padding: .7rem 0 .7rem 1rem
+              padding: .4rem 0 .4rem 1.5rem
               text-align: left
+              border-left: $darkgray solid 3px
               transition: all .2s ease-in
             a:hover
-              background: #DEE0E2
+              background: $darkgray
+              border-left: $primcol solid 3px
           >li
             ol
               >li
                 padding-left: 1.5rem
                 clear: both
                 a.active
-                  background: $primcol
-                  color: #FFF
+                  font-weight: 600
+                  color: $primcol
                 //a::after
                   display: block
                   content: "❱"
@@ -403,6 +431,8 @@ body
                   float: right
             >a.active
               border-left: $primcol solid 3px
+              font-weight: 600
+              color: $primcol
       div.content
         padding: 0 1rem
 
