@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,700i|Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,700i|Material+Icons");
 * {
   box-sizing: content-box;
   font-variant-ligatures: none; }
@@ -240,7 +240,6 @@ body {
 
 @media only screen and (max-width: 630px) {
   body header nav div.navright {
-    font-family: Montserrat;
     font-weight: bold;
     width: 100%;
     left: 100%;
@@ -252,12 +251,13 @@ body {
     padding-top: 3.5rem;
     height: 100%; }
     body header nav div.navright a {
+      font-variant: small-caps;
       opacity: 0.7;
       padding-top: 2rem;
       display: block;
       color: white;
       text-decoration: none;
-      font-size: 4rem;
+      font-size: 3rem;
       line-height: 4rem;
       font-weight: 400;
       z-index: 5; }
@@ -421,5 +421,117 @@ div.collab {
   border-radius: 10px;
   margin-right: 5px;
   background: #0B8040; }
+
+#toggle {
+  display: none; }
+
+#toggle + label {
+  position: absolute;
+  display: block;
+  bottom: 50px;
+  background: #ff471c;
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12), 0 8px 8px 0 rgba(0, 0, 0, 0.24);
+  color: #fff;
+  line-height: 56px;
+  text-align: center;
+  transition: all 500ms ease;
+  right: 0;
+  z-index: 6;
+  cursor: pointer; }
+  #toggle + label i {
+    position: absolute;
+    line-height: 56px;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    left: 0; }
+
+#toggle + label {
+  font-size: 4rem; }
+
+#toggle:checked + label {
+  transform: rotate(45deg); }
+
+.shortcuts {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  width: 50px;
+  z-index: 5; }
+  .shortcuts #scutmenu {
+    z-index: 5;
+    position: absolute;
+    bottom: 45px;
+    right: 5px;
+    width: inherit; }
+    .shortcuts #scutmenu li {
+      position: absolute;
+      box-shadow: none;
+      opacity: 0;
+      bottom: 0;
+      right: 0;
+      transition: all 500ms cubic-bezier(0.17, 0.04, 0.03, 0.94); }
+      .shortcuts #scutmenu li a {
+        background-color: #fff;
+        border-radius: 50px;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12), 0 8px 8px 0 rgba(0, 0, 0, 0.24);
+        line-height: 60px;
+        text-align: center;
+        color: #ff471c;
+        z-index: 5;
+        width: inherit;
+        width: 50px;
+        height: 50px;
+        display: block;
+        transition-property: transform;
+        transition-duration: 0.4s; }
+      .shortcuts #scutmenu li a:hover {
+        transform: scale(1.15); }
+
+#scutmenu > li a::before {
+  line-height: normal;
+  text-align: right;
+  display: inline-block;
+  position: absolute;
+  background: #ff471c;
+  top: 15px;
+  right: 60px;
+  padding: 4px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  overflow: hidden;
+  white-space: nowrap; }
+
+#toggle:checked ~ #scutmenu li {
+  opacity: 1; }
+  #toggle:checked ~ #scutmenu li:first-of-type {
+    transform: translate(0, -290px); }
+  #toggle:checked ~ #scutmenu li:nth-of-type(2) {
+    transform: translate(0, -220px); }
+  #toggle:checked ~ #scutmenu li:nth-of-type(3) {
+    transform: translate(0, -150px); }
+  #toggle:checked ~ #scutmenu li:nth-of-type(4) {
+    transform: translate(0, -80px); }
+
+#cvv::before {
+  content: "Registro Elettronico"; }
+
+#sdg::before {
+  content: "Segreteria Digitale"; }
+
+#circ::before {
+  content: "Circolari e Comunicazioni"; }
+
+#mail::before {
+  content: "Webmail"; }
+
+#toggle:checked ~ #scutmenu {
+  transition-property: opacity;
+  transition-duration: 0.7s;
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */
