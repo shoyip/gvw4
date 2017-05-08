@@ -360,7 +360,7 @@ body {
       display: table-cell;
       text-align: right; }
       body header nav div.navright a {
-        font-family: "HK Grotesk";
+        font-family: "HK Grotesk", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Nimbus Sans L", "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Liberation Sans", sans-serif;
         vertical-align: middle;
         display: inline-block;
         letter-spacing: 0.1em;
